@@ -18,5 +18,7 @@
 	void	*ft_memmove(void *dest, const void *src, size_t n);
 	int		ft_tolower(int c);
 	int		ft_toupper(int c);
+	int		ft_isalpha(int c);
+	int		ft_isdigit(int c);
 
 #endif
