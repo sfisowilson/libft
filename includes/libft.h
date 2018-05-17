@@ -4,9 +4,9 @@
 	void	ft_putchar(char c);
 	void	ft_putstr(char *str);
 	void	ft_putnbr(int n);
-	int	ft_isspace(char c);
+	int		ft_isspace(char c);
 	size_t	ft_strlen(const char *str);
-	int	ft_atoi(const char *str);
+	int		ft_atoi(const char *str);
 	char	*ft_strdup(const char *str);
 	char	*ft_strcpy(char *dest, const char *src);
 	char	*ft_strncpy(char *dest, const char *src, size_t n);
@@ -16,7 +16,7 @@
 	void	*ft_memset(void *s, int c, size_t n);
 	void	*ft_memcpy(void *dest, const void *src, size_t n);
 	void	*ft_memmove(void *dest, const void *src, size_t n);
-	int	*ft_tolower(int c);
-	int	*ft_toupper(int c);
+	int		ft_tolower(int c);
+	int		ft_toupper(int c);
 
 #endif
