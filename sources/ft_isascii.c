@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: swilson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/17 10:37:42 by swilson           #+#    #+#             */
-/*   Updated: 2018/05/18 08:49:51 by swilson          ###   ########.fr       */
+/*   Created: 2018/05/18 08:25:43 by swilson           #+#    #+#             */
+/*   Updated: 2018/05/18 08:28:19 by swilson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*strchr(const char *s, int c)
+int	ft_isascii(int c)
 {
-	int i;
-	int len;
-
-	i = 0;
-	len = ft_strlen(s);
-	while (s[i] != '\0')
-	{
-		if (s[i] == c)
-			return s[i];
-		i++;
-	}
+	if ((c >= 0) && (c <= 177))
+		return (1);
+	return (0);
 }
