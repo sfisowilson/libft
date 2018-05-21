@@ -3,21 +3,16 @@
 
 char	*ft_strstr(const char *h, const char *n)
 {
-	int i, j, len;
-	char * temp;
+	int i;
 
 	i = 0;
-	while (h[i] != '\0')
+	while ((h[i] != '\0') && (n[i] != '0'))
 	{
-		if ((h[i] == n[j]) && (n[j] != '\0'))
+		if (h[i] == n[i])
 		{
-			len = ft_strlen(n) - i;
-			temp = (char*)malloc(sizeof(char) * len);
-			while ((n[j] != '\0') && (h[i + j] != '\0'))
+			if (ft_strcmp(h + i, n) == 0)
 			{
-				temp[j] = h[i+j];
-				//still work to be done!!
-				j++;
+				return ((char *)h + i);
 			}
 		}
 		i++;
