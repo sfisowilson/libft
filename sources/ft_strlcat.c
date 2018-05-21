@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: swilson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/21 11:56:42 by swilson           #+#    #+#             */
-/*   Updated: 2018/05/21 12:06:28 by swilson          ###   ########.fr       */
+/*   Created: 2018/05/21 15:21:19 by swilson           #+#    #+#             */
+/*   Updated: 2018/05/21 15:26:12 by swilson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strlcat(char *dest, const char *src, size_t n)
 {
-	size_t			i;
-	unsigned char	*local_s;
-	unsigned char	local_c;
+	size_t dest_len;
+	size_t i;
 
+	dest_len = ft_strlen(dest);
+	n -= dest_len;
 	i = 0;
-	local_s = (unsigned char *)s;
-	local_c = (unsigned char)c;
-	
-	while (i < n)
+	while ((src[i] != '\0') && (i < n))
 	{
-		if (local_s[i] == local_c)
-			return ((unsigned char*)s + i);
+		dest[dest_len + i] = src[i];
 		i++;
 	}
-	return (NULL);
+	dest[dest_len + i] = '\0';
+	return (dest);
 }
