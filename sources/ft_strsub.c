@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: swilson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/22 09:38:46 by swilson           #+#    #+#             */
-/*   Updated: 2018/05/22 13:09:24 by swilson          ###   ########.fr       */
+/*   Created: 2018/05/22 14:20:04 by swilson           #+#    #+#             */
+/*   Updated: 2018/05/22 15:04:13 by swilson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
-#include <stdio.h>			//remove
+#include <stdlib.h>
 
-size_t	ft_strlcat(char *dest, const char *src, size_t n)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	size_t i;
-	size_t dest_len;
-	size_t src_len;
+	size_t	i;
+	size_t 	j;
+	size_t	local_len;
+	char	*ret;
 
-	dest_len = strlen(dest);
-	src_len = ft_strlen(src);
 	i = 0;
-	if (dest_len <=n)
-		return (dest_len + src_len);
-	while (dest[dest_len +i] != '\0')
-	{
-		dest[dest_len + i] = src[i];
+	local_len = ft_strlen(s);
+	while (s[i] != (char)start)
 		i++;
+	local_len -= i;
+	if (!(ret = (char*)malloc(sizeof(char) * len + 1)))
+		return (NULL);
+	j = 0;
+	while ((s[i] != '\0') && (len > 0))
+	{
+		ret[j] = s[i];
+		i++;
+		j++;
+		len--;
 	}
-	return (dest_len);
+	ret[j] = '\0';
+	return (ret);
 }
