@@ -1,32 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: swilson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/22 13:17:52 by swilson           #+#    #+#             */
-/*   Updated: 2018/05/22 13:47:49 by swilson          ###   ########.fr       */
+/*   Created: 2018/05/23 09:42:43 by swilson           #+#    #+#             */
+/*   Updated: 2018/05/23 13:06:01 by swilson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+
 #include <stdlib.h>
+#include "libft.h"
 
-char	*ft_strmap(char const *s, char (*f)(char))
+char	*ft_strtrim(const char *s)
 {
-	int i;
-	char *ret;
+	char	*ret;
+	char	*str;
+	int		i;
+	int		j;
+	int		len;
 
-	if (!(*s))
-		return (NULL);
+	str = (char*)s;
+	len = ft_strlen(str);
+	j = 0;
 	i = 0;
-	if (!(ret = (char *)malloc(sizeof(char) * ft_strlen(s) + 1)))
+	if (s == 0)
 		return (NULL);
-	while (s[i] != '\0')
+	while (((ft_isspace(str[i])) || (ft_isspace(str[len]))) && (i <= len))
 	{
-		ret[i] = (*f)(s[i]);
-		i++;
+		if (ft_isspace(str[i]))
+			i++;
+		if (ft_isspace(str[len]))
+			len--;
 	}
-	ret[i] = '\0';
+	len -= i;
+	if (!(ret = (char*)malloc(sizeof(char) * len + 2)))
+		return (NULL);
+	while (j <= len)
+	{
+		ret[j] = str[i + j];
+		j++;
+	}
+	ret[j] = '\0';
 	return (ret);
 }
