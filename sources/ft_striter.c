@@ -6,14 +6,15 @@
 /*   By: swilson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/22 08:30:31 by swilson           #+#    #+#             */
-/*   Updated: 2018/05/22 08:42:53 by swilson          ###   ########.fr       */
+/*   Updated: 2018/05/24 14:23:02 by swilson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_striter(char *s, void(*f)(char *))
+void	ft_striter(char *s, void (*f)(char *))
 {
 	int i;
-	if (!(*s))
+
+	if (!(s))
 		return ;
 	i = 0;
 	while (s[i] != '\0')

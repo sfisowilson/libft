@@ -6,7 +6,7 @@
 /*   By: swilson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/22 07:11:43 by swilson           #+#    #+#             */
-/*   Updated: 2018/05/23 13:26:45 by swilson          ###   ########.fr       */
+/*   Updated: 2018/05/24 13:10:36 by swilson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	*ft_memalloc(size_t size)
 
 	if (size <= 0)
 		return (NULL);
-
 	i = 0;
 	if (!(space = (char*)malloc(size)))
 		return (NULL);

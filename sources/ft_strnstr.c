@@ -6,7 +6,7 @@
 /*   By: swilson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/21 15:07:52 by swilson           #+#    #+#             */
-/*   Updated: 2018/05/21 15:07:56 by swilson          ###   ########.fr       */
+/*   Updated: 2018/05/24 14:55:17 by swilson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ char	*ft_strnstr(const char *h, const char *n, size_t c)
 	size_t len;
 
 	i = 0;
-
 	if (n[i] == '\0')
 		return ((char *)h);
 	len = ft_strlen(n);

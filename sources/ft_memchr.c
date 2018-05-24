@@ -6,7 +6,7 @@
 /*   By: swilson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/21 11:56:42 by swilson           #+#    #+#             */
-/*   Updated: 2018/05/21 12:06:28 by swilson          ###   ########.fr       */
+/*   Updated: 2018/05/24 13:17:55 by swilson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	i = 0;
 	local_s = (unsigned char *)s;
 	local_c = (unsigned char)c;
-	
 	while (i < n)
 	{
 		if (local_s[i] == local_c)
