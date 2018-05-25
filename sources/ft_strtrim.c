@@ -6,7 +6,7 @@
 /*   By: swilson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/23 09:42:43 by swilson           #+#    #+#             */
-/*   Updated: 2018/05/24 16:11:48 by swilson          ###   ########.fr       */
+/*   Updated: 2018/05/25 10:34:30 by swilson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ char    *ft_strtrim(const char *s)
 	int		j;
 	int		len;
 
+	if (!s)
+		return  (NULL);
 	str = (char*)s;
 	len = ft_strlen(str);
 	j = 0;
 	i = 0;
-	if (s == 0)
-		return (NULL);
 	while (((ft_isspace(str[i])) || (ft_isspace(str[len]))) && (i <= len))
 	{
 		if (ft_isspace(str[i]))

@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: swilson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/21 10:25:36 by swilson           #+#    #+#             */
-/*   Updated: 2018/05/25 10:36:10 by swilson          ###   ########.fr       */
+/*   Created: 2018/05/25 10:41:34 by swilson           #+#    #+#             */
+/*   Updated: 2018/05/25 10:56:14 by swilson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	ft_putstr_fd(char const *s, int fd)
 {
-	size_t	i;
-	char	*local_dest;
-	char	*local_src;
+	int i;
 
-	local_dest = (char*)dest;
-	local_src = (char*)src;
+	if (!s)
+		return ;
 	i = 0;
-	if (local_src < local_dest)
+	while ((char)s[i] != '\0')
 	{
-		while (n--)
-			local_dest[n] = local_src[n];
+		ft_putchar_fd((char)s[i], fd);
+		i++;
 	}
-	else
-	{
-		while (i < n)
-		{
-			local_dest[i] = local_src[i];
-			i++;
-		}
-	}
-	return (dest);
 }
