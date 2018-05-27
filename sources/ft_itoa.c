@@ -31,23 +31,31 @@ char	*ft_itoa(int n)
 	int		sign;
 	char	*ret;
 
-	printf("-- %d --", n);
 	sign = 0;
 	len = count(n);
+	printf("count = %d\n", len);
 	if (n < 0)
 		sign = 1;
-	len += sign;
-	if (!(ret = (char*)malloc(sizeof(char) * len)))
+	if (!(ret = (char*)malloc(sizeof(char) * len + sign + 1)))
 		return (NULL);
-	//ret[len] = '\0';
+	if (sign)
+	{
+		len += sign;
+		ret[0] = '-';
+		n *= -1;
+	}
+	ret[len] = '\0';
 	ret[--len] = n % 10 + '0';
-	printf(" %d / ", n);
 	while (n /= 10)
 	{
-		printf(" %d ", len);
 		ret[--len] = n % 10 + '0';
+		printf("ret[%d] = %c\n", len, ret[len]);
 	}
-	if (sign)
-		ret[len] = '-';
 	return (ret);
+}
+
+int	main(void)
+{
+	printf("char return value is = %s\n", ft_itoa(-6));
+	return (0);
 }
