@@ -6,14 +6,36 @@
 /*   By: swilson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/23 09:42:43 by swilson           #+#    #+#             */
-/*   Updated: 2018/05/25 10:34:30 by swilson          ###   ########.fr       */
+/*   Updated: 2018/05/28 15:42:00 by swilson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-char    *ft_strtrim(const char *s)
+static int	ft_isspace(char c)
+{
+	if ((c == ' ') || (c == '\0') || (c == '\n') || (c == '\v') ||\
+			(c == '\t') || (c == '\r') || (c == '\f'))
+	{
+		return (1);
+	}
+	return (0);
+}
+
+static	int	getsize(char *str, int *i, int *len)
+{
+	while (((ft_isspace(str[*i])) || (ft_isspace(str[*len]))) && (*i <= *len))
+	{
+		if (ft_isspace(str[*i]))
+			(*i)++;
+		if (ft_isspace(str[*len]))
+			(*len)--;
+	}
+	return (*len -= *i);
+}
+
+char		*ft_strtrim(const char *s)
 {
 	char	*ret;
 	char	*str;
@@ -22,26 +44,16 @@ char    *ft_strtrim(const char *s)
 	int		len;
 
 	if (!s)
-		return  (NULL);
+		return (NULL);
 	str = (char*)s;
 	len = ft_strlen(str);
 	j = 0;
 	i = 0;
-	while (((ft_isspace(str[i])) || (ft_isspace(str[len]))) && (i <= len))
-	{
-		if (ft_isspace(str[i]))
-			i++;
-		if (ft_isspace(str[len]))
-			len--;
-	}
-	len -= i;
 	if (!(ret = (char*)malloc(sizeof(char) * len + 2)))
 		return (NULL);
-	while (j <= len)
-	{
+	j -= 1;
+	while (++j <= len)
 		ret[j] = str[i + j];
-		j++;
-	}
 	ret[j] = '\0';
 	return (ret);
 }

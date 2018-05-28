@@ -6,12 +6,11 @@
 /*   By: swilson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/25 13:02:01 by swilson           #+#    #+#             */
-/*   Updated: 2018/05/25 14:02:09 by swilson          ###   ########.fr       */
+/*   Updated: 2018/05/28 13:30:30 by swilson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
 static int	count(int n)
 {
@@ -25,15 +24,16 @@ static int	count(int n)
 	return (len);
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int num)
 {
 	int		len;
 	int		sign;
 	char	*ret;
+	long	n;
 
+	n = (long)num;
 	sign = 0;
 	len = count(n);
-	printf("count = %d\n", len);
 	if (n < 0)
 		sign = 1;
 	if (!(ret = (char*)malloc(sizeof(char) * len + sign + 1)))
@@ -49,13 +49,6 @@ char	*ft_itoa(int n)
 	while (n /= 10)
 	{
 		ret[--len] = n % 10 + '0';
-		printf("ret[%d] = %c\n", len, ret[len]);
 	}
 	return (ret);
-}
-
-int	main(void)
-{
-	printf("char return value is = %s\n", ft_itoa(-6));
-	return (0);
 }

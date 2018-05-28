@@ -6,14 +6,14 @@
 /*   By: swilson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/25 10:24:50 by swilson           #+#    #+#             */
-/*   Updated: 2018/05/25 10:24:56 by swilson          ###   ########.fr       */
+/*   Updated: 2018/05/28 14:37:03 by swilson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-static int split(char *s, char c)
+static int	split(char *s, char c)
 {
 	int i;
 	int j;
@@ -21,7 +21,7 @@ static int split(char *s, char c)
 
 	i = 0;
 	count = 0;
-	while (s[i]  == c)
+	while (s[i] == c)
 		i++;
 	while (s[i] != '\0')
 	{
@@ -29,7 +29,7 @@ static int split(char *s, char c)
 		{
 			count++;
 			while (s[i] == c)
-				i++;	
+				i++;
 		}
 		else
 		{
@@ -67,11 +67,10 @@ static char	**make_string(char *s, int count, char **ret, char c)
 			j++;
 	}
 	ret[i] = NULL;
-
 	return (ret);
 }
 
-char ** ft_strsplit(char const *s, char c)
+char		**ft_strsplit(char const *s, char c)
 {
 	char	**ret;
 	int		count;
@@ -79,7 +78,6 @@ char ** ft_strsplit(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-
 	l_s = (char*)s;
 	count = split(l_s, c);
 	if (!(ret = (char**)malloc(sizeof(char*) * count + 1)))
