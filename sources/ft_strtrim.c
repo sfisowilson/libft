@@ -6,7 +6,7 @@
 /*   By: swilson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/23 09:42:43 by swilson           #+#    #+#             */
-/*   Updated: 2018/05/28 15:42:00 by swilson          ###   ########.fr       */
+/*   Updated: 2018/05/29 07:16:15 by swilson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ char		*ft_strtrim(const char *s)
 	len = ft_strlen(str);
 	j = 0;
 	i = 0;
+	len = getsize(str, &i, &len);
 	if (!(ret = (char*)malloc(sizeof(char) * len + 2)))
 		return (NULL);
 	j -= 1;
