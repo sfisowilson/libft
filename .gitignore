@@ -1,1 +1,5 @@
-/sources/main.c
+main.c
+*.swp
+*.swo
+.D*
+*.o
