@@ -6,13 +6,13 @@
 /*   By: swilson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 07:14:41 by swilson           #+#    #+#             */
-/*   Updated: 2018/05/28 15:46:10 by swilson          ###   ########.fr       */
+/*   Updated: 2018/06/01 10:58:22 by swilson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 static int	ft_isspace(char c)
 {
-	if ((c == ' ') || (c == '\0') || (c == '\n') || (c == '\v') ||\
+	if ((c == ' ') || (c == '\n') || (c == '\v') ||\
 			(c == '\t') || (c == '\r') || (c == '\f'))
 	{
 		return (1);
@@ -41,9 +41,9 @@ int			ft_atoi(const char *str)
 	while ((str[i] >= '0') && (str[i] <= '9'))
 	{
 		ret = ret * 10 + (str[i++] - '0');
-		if ((ret > 2147483648) && sign == 1)
+		if (ret < 0  && sign == 1)
 			return (-1);
-		else if ((ret > 2147483648) && sign == -1)
+		else if (ret > 0 && sign == -1)
 			return (0);
 	}
 	return (ret * sign);
