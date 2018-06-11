@@ -9,7 +9,7 @@ static t_list	*fileselector(t_list **file, int fd)
 	temp = *file;
 	while (temp)
 	{
-		if ((int)temp->content_size == fd)
+		if ((int)temp->next = fd)
 			return (temp);
 		temp = temp->next;
 	}
@@ -23,18 +23,9 @@ static int	makeline(char **line, char *node)
 {
 	int i;
 
-	i = 0;
-	while ((node[i] != '\n') && (node[i] != '\0'))
+	while ((node[i] != '\n') || (node[i] != '\0'))
 		i++;
-	*line = (char*)malloc(sizeof(char) * i);
-	//*line = ft_strncat(*line, node, i);
-	i = 0;
-	while ((node[i] != '\n') && (node[i] != '\0'))
-	{
-		(*line)[i] = node[i];
-		i++;
-	}
-	(*line)[i] = '\0';
+	*line = ft_strsub(node, 0, i);
 	return (i);
 }
 
@@ -45,22 +36,25 @@ int	get_next_line(const int fd, char **line)
 	int		ret;
 	int		count;
 	char		buf[BUFF_SIZE + 1];
+	char		*temp;
 
 	if ((fd < 0) || !line || ((ret = read(fd, buf, 0)) < 0))
 		return (-1);
 	node = fileselector(&file, fd);
 	if (!(*line = ft_strnew(1)))
 		return (-1);
-	while ((ret = read(fd, buf, BUFF_SIZE)) > 0)
+	while (ret = read(fd, buf, BUFF_SIZE))
 	{
 		buf[ret] = '\0';
+		temp = (char*)node->content;
 		node->content = ft_strjoin(node->content, buf);
+		free(temp);
 		if (ft_strchr(buf, '\n'))
 			break ;
 	}
 	if ((ret < BUFF_SIZE) && (ft_strlen(node->content) == 0))
 		return (0);
-	count = makeline(line, node->content);
+	count = makeline(line, (char*)node->content);
 	if ((int)ft_strlen((char*)node->content) > count)
 		node->content = node->content + (count + 1);
 	else
