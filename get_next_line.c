@@ -54,7 +54,12 @@ int	get_next_line(const int fd, char **line)
 	while ((ret = read(fd, buf, BUFF_SIZE)) > 0)
 	{
 		buf[ret] = '\0';
-		node->content = ft_strjoin(node->content, buf);
+
+		//use your function here
+		//reallocate node->content
+		//node->content = ft_realloc(&node->content, node size + buff_size + 1)
+		//use strcat (node->content, buf)
+
 		if (ft_strchr(buf, '\n'))
 			break ;
 	}
